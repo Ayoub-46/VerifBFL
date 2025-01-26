@@ -1,0 +1,785 @@
+{
+    "caliper": {
+        "blockchain": "ethereum"
+    },
+    "ethereum": {
+        "url": "ws://172.17.0.1:8546", 
+        "contractDeployerAddress": "0x25E85bF1af27415BeEFd0c1a4B3594A7569EbB23",
+        "contractDeployerAddressPrivateKey": "0x9a9aba58c323191579980ceb2886165a7ace005f1ef38fa0d622864cf1733725",
+        "fromAddress":"0x25E85bF1af27415BeEFd0c1a4B3594A7569EbB23",
+        "fromAddressPrivateKey":"0x9a9aba58c323191579980ceb2886165a7ace005f1ef38fa0d622864cf1733725",
+        "transactionConfirmationBlocks": 1,
+        "chainId": 1337,
+        "contracts": {
+            "taskContract": {
+                "address": "0x84a881c43e3a0e528D8d441335c036eC1339EF54",
+                "estimateGas": true,
+                "abi": [
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      }
+                    ],
+                    "stateMutability": "nonpayable",
+                    "type": "constructor"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "AccessControlBadConfirmation",
+                    "type": "error"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "bytes32",
+                        "name": "neededRole",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "name": "AccessControlUnauthorizedAccount",
+                    "type": "error"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": false,
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "indexed": false,
+                        "internalType": "address",
+                        "name": "aggregator",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "AggregatorSubscribed",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": false,
+                        "internalType": "uint256",
+                        "name": "round",
+                        "type": "uint256"
+                      },
+                      {
+                        "indexed": false,
+                        "internalType": "address",
+                        "name": "trainer",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "GlobalModelSubmitted",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": false,
+                        "internalType": "uint256",
+                        "name": "round",
+                        "type": "uint256"
+                      },
+                      {
+                        "indexed": false,
+                        "internalType": "address",
+                        "name": "trainer",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "LocalModelSubmitted",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "previousAdminRole",
+                        "type": "bytes32"
+                      },
+                      {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "newAdminRole",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "name": "RoleAdminChanged",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                      },
+                      {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "RoleGranted",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": true,
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                      },
+                      {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "RoleRevoked",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": false,
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "indexed": false,
+                        "internalType": "uint256",
+                        "name": "round",
+                        "type": "uint256"
+                      }
+                    ],
+                    "name": "RoundFinished",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "participant",
+                        "type": "address"
+                      },
+                      {
+                        "indexed": false,
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                      }
+                    ],
+                    "name": "Staked",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": false,
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      }
+                    ],
+                    "name": "TaskPublished",
+                    "type": "event"
+                  },
+                  {
+                    "anonymous": false,
+                    "inputs": [
+                      {
+                        "indexed": false,
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "indexed": false,
+                        "internalType": "address",
+                        "name": "trainer",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "TrainerSubscribed",
+                    "type": "event"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "AGGREGATOR_ROLE",
+                    "outputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "DEFAULT_ADMIN_ROLE",
+                    "outputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "MIN_REWARD",
+                    "outputs": [
+                      {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "MIN_STAKE",
+                    "outputs": [
+                      {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "NUM_AGGREGATORS",
+                    "outputs": [
+                      {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "NUM_TRAINERS",
+                    "outputs": [
+                      {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "PUBLISHER_ROLE",
+                    "outputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "TRAINER_ROLE",
+                    "outputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "VALIDATOR_ROLE",
+                    "outputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "uint256",
+                        "name": "a",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "b",
+                        "type": "uint256"
+                      }
+                    ],
+                    "name": "add",
+                    "outputs": [
+                      {
+                        "internalType": "uint256",
+                        "name": "res",
+                        "type": "uint256"
+                      }
+                    ],
+                    "stateMutability": "pure",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "string",
+                        "name": "_taskId",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "_initialModel",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "_reward",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "_totalRounds",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "createTask",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "electAggregator",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "electTrainer",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "electValidator",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "name": "getRoleAdmin",
+                    "outputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "",
+                        "type": "bytes32"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "grantRole",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "hasRole",
+                    "outputs": [
+                      {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "relectPublisher",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "removeAggregator",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "removePublisher",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "removeTrainer",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "address",
+                        "name": "_a",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "removeValidator",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "callerConfirmation",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "renounceRole",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "bytes32",
+                        "name": "role",
+                        "type": "bytes32"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "revokeRole",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "globalUpdate",
+                        "type": "string"
+                      }
+                    ],
+                    "name": "submitGlobalUpdate",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "localUpdate",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "submitLocalUpdate",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "stakeValue",
+                        "type": "uint256"
+                      }
+                    ],
+                    "name": "subscribeAsAggregatorToTask",
+                    "outputs": [],
+                    "stateMutability": "payable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "string",
+                        "name": "taskId",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "stakeValue",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                      }
+                    ],
+                    "name": "subscribeAsTrainerToTask",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "bytes4",
+                        "name": "interfaceId",
+                        "type": "bytes4"
+                      }
+                    ],
+                    "name": "supportsInterface",
+                    "outputs": [
+                      {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [
+                      {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                      }
+                    ],
+                    "name": "tasks",
+                    "outputs": [
+                      {
+                        "internalType": "address",
+                        "name": "publisher",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "numberOfLocalSubmissions",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "currentRound",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "reward",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "totalRounds",
+                        "type": "uint256"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  },
+                  {
+                    "inputs": [],
+                    "name": "token",
+                    "outputs": [
+                      {
+                        "internalType": "contract IERC20",
+                        "name": "",
+                        "type": "address"
+                      }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                  }
+                ]
+                }
+            }
+        }
+  }
+  

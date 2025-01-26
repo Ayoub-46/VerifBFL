@@ -1,0 +1,152 @@
+test:
+  name: Business logic 
+  description: Business logic performance test
+  workers:
+    type: local
+    number: 1
+  rounds:
+   - label: warm-up (ignore results)
+     txNumber: 100
+     rateControl:
+       type: maximum-rate
+       opts:
+         tps: 20
+         step: 5
+         sampleInterval: 10
+         includeFailed: false
+     workload:
+       module: TaskManagement/workload/add.js
+       arguments:
+        contract: taskContract
+        num: 1
+  #  - label: second round
+  #    txNumber: 250
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 50
+  #        step: 5
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/add.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 2
+  #  - label: second round
+  #    txNumber: 400
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 80
+  #        step: 5
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/add.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 3
+  #  - label: second round
+  #    txNumber: 500
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 100 
+  #        step: 5
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/add.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 4
+  #  - label: second round
+  #    txNumber: 750
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 150 
+  #        step: 5
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/add.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 5
+  
+   - label: second round
+     txNumber: 1000
+     rateControl:
+       type: maximum-rate
+       opts:
+         tps: 200 
+         step: 10
+         sampleInterval: 10
+         includeFailed: false
+     workload:
+       module: TaskManagement/workload/add.js
+       arguments:
+        contract: taskContract
+        num: 6
+
+   - label: second round
+     txNumber: 4000
+     rateControl:
+       type: maximum-rate
+       opts:
+         tps: 400 
+         step: 15
+         sampleInterval: 10
+         includeFailed: false
+     workload:
+       module: TaskManagement/workload/add.js
+       arguments:
+        contract: taskContract
+        num: 6
+
+  #  - label: second round
+  #    txNumber: 1500
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 200 
+  #        step: 10
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/createTask.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 7
+
+  #  - label: second round
+  #    txNumber: 2000
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 200 
+  #        step: 15
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/createTask.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 7
+   
+  #  - label: second round
+  #    txNumber: 2000
+  #    rateControl:
+  #      type: maximum-rate
+  #      opts:
+  #        tps: 250 
+  #        step: 15
+  #        sampleInterval: 10
+  #        includeFailed: false
+  #    workload:
+  #      module: TaskManagement/workload/createTask.js
+  #      arguments:
+  #       contract: taskContract
+  #       num: 7
