@@ -69,8 +69,6 @@ impl<G: Group> StepCircuit<G::Scalar> for AddCircuit<G> {
             );
 
         }
-
-        // let z_out = z[0].add(cs, &c)?;
         
         Ok(z.to_vec())
     }
@@ -195,37 +193,6 @@ fn main() {
         );
         assert!(res.is_ok());
         println!("=========================================================");
-    
-
-    /*type C1 = AddCircuit<<E1 as Engine>::GE>;
-    type C2 = TrivialCircuit<<E2 as Engine>::Scalar>;
-
-    let start = Instant::now();
-    let proof_file = File::open("compressedsnark.json").expect("unable to open file");
-    let reader = BufReader::new(proof_file);
-    let compressed_snark: CompressedSNARK::<E1, E2, C1, C2, S1, S2> = from_reader(reader).unwrap();
-    println!("Reading CompressedSNARK took {:?}", start.elapsed());
-
-    let start = Instant::now();
-    let vk_file = File::open("verifierkey.json").expect("unable to open file");
-    let reader = BufReader::new(vk_file);
-    let vk: VerifierKey<E1, E2, C1, C2, S1, S2> = from_reader(reader).unwrap();
-    println!("Reading Vk took {:?}", start.elapsed());
-
-    let start = Instant::now();
-    let res = compressed_snark.verify(
-      &vk,
-      num_steps,
-      &[<E1 as Engine>::Scalar::zero()],
-      &[<E2 as Engine>::Scalar::zero()],
-    );
-
-    println!(
-      "CompressedSNARK::verify: {:?}, took {:?}",
-      res.is_ok(),
-      start.elapsed()
-    );*/
-
    
 }
 
