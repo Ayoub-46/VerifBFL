@@ -10,3 +10,7 @@
 ### How to Use This Repository
 
 If you wish to reproduce the experiments or explore the code, please refer to the detailed documentation provided in each directory. The `README.md` files in individual folders will guide you through the setup and usage of the respective components.
+
+### Reference
+
+Bellachia, A. A., Bouchiha, M. A., Ghamri-Doudane, Y., & Rabah, M. (2025). VerifBFL: Leveraging zk-SNARKs for A Verifiable Blockchained Federated Learning. arXiv preprint arXiv:2501.04319.
